@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>শেষ নিউজ — বিস্তারিত</title>
+  <meta name="description" content="শেষ নিউজ — খবরের বিস্তারিত (Ultra ProMax)">
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./assets/img/icon-192.png" />
+  <meta name="theme-color" content="#0b1020" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <script defer src="./assets/js/config.js"></script>
+  <script defer src="./assets/js/detail.ultra.js"></script>
+</head>
+<body class="theme-dark no-motion">
+  <a class="skip" href="#detail">মূল কন্টেন্টে যান</a>
+
+  <header class="site-header sticky">
+    <div class="container header-inner">
+      <a class="brand" href="./">শেষ <span>নিউজ</span> <small class="badge">Ultra ProMax</small></a>
+      <nav id="cat-nav" class="nav"></nav>
+      <div class="actions"><a class="btn btn-outline" href="./">হোম</a></div>
+    </div>
+    <div id="progress" class="progress"></div>
+  </header>
+
+  <main class="container">
+    <article id="detail" class="detail" itemscope itemtype="https://schema.org/NewsArticle"></article>
+    <aside class="detail-tools">
+      <button id="tts" class="btn btn-outline">পড়ে শুনুন</button>
+      <button id="copy" class="btn btn-outline">লিংক কপি</button>
+      <button id="print" class="btn btn-outline">প্রিন্ট</button>
+      <canvas id="qr" width="160" height="160" class="qr"></canvas>
+      <button id="bookmark" class="btn btn-primary">বুকমার্ক</button>
+      <div class="kbd">
+        <p>⌨️ শর্টকাট: <code>R</code> রিফ্রেশ, <code>B</code> বুকমার্ক, <code>T</code> টপ, <code>P</code> প্রিন্ট</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>শেষ নিউজ</h3>
+        <p><small>© <span id="year"></span> Shesh News</small></p>
+      </div>
+      <div>
+        <h4>শেয়ার</h4>
+        <ul class="social">
+          <li><a id="share-fb" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a id="share-x" target="_blank" rel="noopener">X</a></li>
+          <li><a id="share-wa" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.ultra.js'));
+    }
+  </script>
+</body>
+</html>

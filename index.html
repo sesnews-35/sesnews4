@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>শেষ নিউজ — Ultra ProMax</title>
+  <meta name="description" content="শেষ নিউজ — আল্ট্রা প্রোম্যাক্স: গুগল ফর্ম/শিট/ড্রাইভ-নির্ভর আল্ট্রা-ফাস্ট বাংলা নিউজপোর্টাল, PWA + Push + SWR + ইনফিনিট স্ক্রল।">
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" href="./assets/img/icon-192.png" />
+  <meta property="og:title" content="শেষ নিউজ — Ultra ProMax" />
+  <meta property="og:description" content="বাংলার দ্রুততম নিউজ অভিজ্ঞতা" />
+  <meta property="og:image" content="./assets/img/og.jpg" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <link rel="stylesheet" href="./assets/css/print.css" media="print" />
+  <script defer src="./assets/js/config.js"></script>
+  <script defer src="./assets/js/instant-nav.js"></script>
+  <script defer src="./assets/js/app.ultra.js"></script>
+</head>
+<body class="theme-dark no-motion">
+  <a class="skip" href="#grid">মূল কন্টেন্টে যান</a>
+
+  <header class="site-header sticky" role="banner">
+    <div class="topbar">
+      <div class="ticker" id="ticker" aria-live="polite"></div>
+      <div class="top-controls">
+        <span class="clock" id="clock" aria-label="লাইভ সময়"></span>
+        <button id="contrast" class="btn btn-outline" title="হাই কনট্রাস্ট">HC</button>
+        <button id="motion" class="btn btn-outline" title="অ্যানিমেশন অন/অফ">⏯</button>
+      </div>
+    </div>
+    <div class="container header-inner">
+      <a class="brand" href="./" aria-label="শেষ নিউজ হোম">শেষ <span>নিউজ</span> <small class="badge">Ultra ProMax</small></a>
+      <nav id="cat-nav" class="nav" aria-label="ক্যাটাগরি নেভিগেশন"></nav>
+      <div class="actions">
+        <input id="q" class="search" type="search" placeholder="খবর খুঁজুন…" aria-label="খোঁজ">
+        <button id="theme" class="btn btn-outline" title="থিম">থিম</button>
+        <button id="font-" class="btn btn-outline" title="ফন্ট ছোট">A-</button>
+        <button id="font+" class="btn btn-outline" title="ফন্ট বড়">A+</button>
+        <button id="refresh" class="btn btn-primary">রিফ্রেশ</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="main" role="main">
+    <section class="toolbar">
+      <div id="filter-info" class="muted"></div>
+      <div class="layout">
+        <label><input type="radio" name="layout" value="cards" checked> কার্ড</label>
+        <label><input type="radio" name="layout" value="list"> লিস্ট</label>
+      </div>
+    </section>
+    <section id="grid" class="grid" aria-live="polite"></section>
+    <div id="sentinel" class="sentinel" aria-hidden="true"></div>
+    <section id="bookmarks" class="bookmarks hidden" aria-label="বুকমার্ক"></section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <h3>শেষ নিউজ</h3>
+        <p>বাংলাদেশের পূর্ণাঙ্গ বাংলা নিউজপোর্টাল — Ultra ProMax সংস্করণ।</p>
+        <p><small>© <span id="year"></span> Shesh News. সর্বস্বত্ব সংরক্ষিত।</small></p>
+      </div>
+      <div>
+        <h4>যোগাযোগ</h4>
+        <ul>
+          <li>ইমেইল: contact@example.com</li>
+          <li>ফোন: +8801XXXXXXXXX</li>
+          <li>ঠিকানা: ঢাকা, বাংলাদেশ</li>
+        </ul>
+      </div>
+      <div>
+        <h4>সোশ্যাল</h4>
+        <ul class="social">
+          <li><a href="#" aria-label="Facebook">Facebook</a></li>
+          <li><a href="#" aria-label="X/Twitter">X</a></li>
+          <li><a href="#" aria-label="YouTube">YouTube</a></li>
+          <li><a href="#" aria-label="Instagram">Instagram</a></li>
+        </ul>
+        <div class="notify">
+          <button id="notify" class="btn btn-outline">পুশ চালু</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('./sw.ultra.js'));
+    }
+  </script>
+</body>
+</html>

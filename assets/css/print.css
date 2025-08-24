@@ -1,0 +1,5 @@
+@media print{
+  .site-header,.site-footer,.detail-tools,.topbar{display:none!important}
+  .detail .content{padding:0}
+  body{background:white;color:#000}
+}
